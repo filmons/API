@@ -26,8 +26,15 @@ app.all("*", (req, res, next) => {
 	
 });
 
-db.sequelize.sync().then(() => {
+app.listen(port, async () => {
+	console.debug(`Server is listening on port ${port}`);
+	//console.debug(`Current environment is ${env});
+	db.sequelize.sync({ alter: true }, () => {
+	  console.log("db on");
+	});
+  });
+/*db.sequelize.sync().then(() => {
 	app.listen(port, () => {
 		console.log(`Example app listening at http://localhost:${port}`);
 	});
-});
+});*/
