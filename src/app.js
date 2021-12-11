@@ -1,10 +1,10 @@
 const express = require("express");
-const db = require("../models");
+const db = require("../../MNES/db/modules");
 const app = express();
 const helmet = require("helmet");
 const dotenv = require("dotenv");
 const cors = require("cors");
-const routes = require("../models/user/index");
+const routes = require("./routes/index");
 
 dotenv.config();
 

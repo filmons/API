@@ -1,10 +1,10 @@
-const { medicin } = require("../");
+const { User } = require("../../db/modules/user");
 //const { BadRequestError, NotFoundError } = require("../../src/helpers/error");
 
 const usersController = {
 	getAllUsers: async () => {
-		console.log(medicin);
-		const users = await medicin.findAll({
+		
+		const users = await User.findAll({
 			// order: [["firstName", "ASC"]],
 			//  attributes: ["firstName"],
 			raw: true,
