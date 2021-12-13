@@ -8,13 +8,15 @@ const routes = require("./routes/index");
 
 dotenv.config();
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(helmet());
+
 app.use("/api", cors());
 app.use("/api", routes);
 
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(helmet());
+
 
 
 const port = Number(process.env.PORT);
