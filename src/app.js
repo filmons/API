@@ -1,11 +1,11 @@
 const express = require("express");
-const db = require("../../MNES/db/modules");
+const db = require("../../MNES/db/modules/index");
 const app = express();
 const helmet = require("helmet");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const routes = require("./routes/index");
-
+const { notFoundHandler, errorLogger, errorHandler} = require ("./middlewares");
 dotenv.config();
 
 app.use(express.urlencoded({ extended: true }));
@@ -15,18 +15,15 @@ app.use(helmet());
 app.use("/api", cors());
 app.use("/api", routes);
 
+app.use("*", notFoundHandler);
+app.use(errorLogger);
+app.use(errorHandler);
 
 
 
 
 const port = Number(process.env.PORT);
 
-// 404 error
-app.all("*", (req, res, next) => {
-	const err = new HttpException(404, "Endpoint Not Found");
-	next(err);
-	
-});
 
 app.listen(port, async () => {
 	console.debug(`Server is listening on port ${port}`);
