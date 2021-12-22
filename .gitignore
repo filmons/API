@@ -1,3 +1,5 @@
 // https://sequelize.org/master/manual/migrations.html
 
 .env
+#  getAllergene,getAllergene,AddAllergene danne
+# getAllPatien,grtPatien, AddPatien donne

@@ -11,10 +11,10 @@ const patientRouter     = require("./patient_router");
 const mainRouter = express.Router();
 
  mainRouter.use("/allergien", allergeneRouter);
- //mainRouter.use("/hopital", hopitalRouter);
-// mainRouter.use("/medicament", medicamentRouter);
-// mainRouter.use("/praticien", praticienRouter);
-// mainRouter.use("/service", serviceRouter);
+ mainRouter.use("/hopital", hopitalRouter);
+mainRouter.use("/medicament", medicamentRouter);
+ mainRouter.use("/praticien", praticienRouter);
+mainRouter.use("/service", serviceRouter);
 mainRouter.use("/patient", patientRouter);
 
 module.exports = mainRouter;
