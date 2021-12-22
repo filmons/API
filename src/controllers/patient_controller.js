@@ -2,9 +2,9 @@ const { Patient } = require("../../db/modules");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const secret = process.env.SECRET;
-
 require("dotenv").config();
-const { BadRequestError, NotFoundError } = require("../helpers/errors");
+
+const { BadRequestError, NotFoundError} = require("../helpers/errors");
 
 const userController = {
 	getAllPatient: async () => {
@@ -16,9 +16,26 @@ const userController = {
 		return patients;
 		//return {pulet :"fifi"};//pour voir dans le table  Patients car il est vide
 	},
+	getPatientProfile: async (id) => {
+
+        const user = await  Patient.findOne({
+            where: {
+                id
+            },
+        });
+        if (!user) {
+            return{ error: new  NotFoundError("Utilisateur non trouvé")};
+        }
+        return user;
+    },
 
 	add: async (data) => {
 		const { email, password, nom, adresse, tele, prenom } = data;
+
+		if ( !email || !password || !nom || !adresse ||  !prenom || !tele) {
+
+			return {error : new BadRequestError(" veuillez remplir les champs")};
+		}
 
 		// Fields erors
 		const utilisateurEmail = await Patient.findOne({

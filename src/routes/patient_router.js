@@ -3,9 +3,10 @@ const { OK, CREATED } = require("../helpers/status_codes");
 
 const {
 	getAllPatient,
-	getPatient,
+	// getPatient,
 	add,
 	login,
+	getPatientProfile,
 
 } = require("../controllers/patient_controller");
 
@@ -16,8 +17,13 @@ router.get("/", async (request, response) => {
 	response.status(OK).json(patient);
 });
 
-router.get("/:nom", async (request, response) => {
-	const patient = await getPatient(request.params.nom);
+// router.get("/:nom", async (request, response) => {
+// 	const patient = await getPatient(request.params.nom);
+// 	response.status(OK).json(patient);
+// });
+
+router.get("/:id", async (request, response) => {
+	const patient = await getPatientProfile(request.params.id);
 	response.status(OK).json(patient);
 });
 

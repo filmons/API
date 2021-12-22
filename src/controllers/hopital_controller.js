@@ -6,7 +6,7 @@ const hopitalController = {
 	getAllHopital: async () => {
 		const hopitals = await Hopital.findAll({
 			order: [["nom", "ASC"]],
-			attributes: { exclude: ["createdAt", "updatedAt, club_id"] },
+			attributes: { exclude: ["createdAt", "updatedAt"] },
 			raw: true,
 		});
 		return hopitals;
