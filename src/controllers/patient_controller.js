@@ -10,7 +10,7 @@ const userController = {
 	getAllPatient: async () => {
 		const patients = await Patient.findAll({
 			order: [["nom", "ASC"]],
-			attributes: { exclude: ["createdAt", "updatedAt, club_id"] },
+			attributes: { exclude: ["createdAt", "updatedAt"] },
 			raw: true,
 		});
 		return patients;
@@ -58,6 +58,31 @@ const userController = {
 		});
 		return newUser;
 	},
+
+	login: async (data) => {
+		const { email, password } = data;
+
+		// Verification email
+		const user = await Patient.findOne({
+			where: {
+				email,
+			},
+		});
+		if (!user) {
+			return { error: new BadRequestError("Cet utilisateur n'existe pas") };
+		}
+
+		// Verification mot de passe
+		const isPasswordValid = await bcrypt.compare(password, user.password);
+		if (!isPasswordValid) {
+			return { error: new BadRequestError("Mot de passe incorrect") };
+		}
+
+		const { id } = user;
+
+		const token = jwt.sign({ id }, secret, { expiresIn: "24h" });
+
+		return token;
+	},
 };
 module.exports = userController;
-

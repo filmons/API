@@ -5,6 +5,7 @@ const {
 	getAllPatient,
 	getPatient,
 	add,
+	login,
 
 } = require("../controllers/patient_controller");
 
@@ -20,10 +21,16 @@ router.get("/:nom", async (request, response) => {
 	response.status(OK).json(patient);
 });
 
-router.post("/", async (request, response) => {
+router.post("/signup", async (request, response) => {
 	const userToAdd = request.body;
 
 	const newpatient = await add(userToAdd);
+	response.status(CREATED).json(newpatient);
+});
+router.post("/login", async (request, response) => {
+	const userToAdd = request.body;
+
+	const newpatient = await login(userToAdd);
 	response.status(CREATED).json(newpatient);
 });
 
