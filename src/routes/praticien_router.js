@@ -15,11 +15,11 @@ router.get("/", async (request, response) => {
 });
 
 router.post("/signup", async (request, response) => {
-	const userToAdd = request.body;
+	const praticienToAdd = request.body;
 	
 
-	const newpatient = await addPraticien(userToAdd);
-	response.status(CREATED).json(newpatient);
+	const newpraticien = await addPraticien(praticienToAdd);
+	response.status(CREATED).json(newpraticien);
 });
 
 

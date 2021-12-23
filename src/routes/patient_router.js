@@ -17,10 +17,6 @@ router.get("/", async (request, response) => {
 	response.status(OK).json(patient);
 });
 
-// router.get("/:nom", async (request, response) => {
-// 	const patient = await getPatient(request.params.nom);
-// 	response.status(OK).json(patient);
-// });
 
 router.get("/:id", async (request, response) => {
 	const patient = await getPatientProfile(request.params.id);
