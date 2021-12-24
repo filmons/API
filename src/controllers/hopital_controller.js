@@ -10,7 +10,6 @@ const hopitalController = {
 			raw: true,
 		});
 		return hopitals;
-		//return {pulet :"fifi"};//pour voir dans le table clubs car il est vide
 	},
 
 	getOneHospital: async (id) => {
@@ -23,7 +22,7 @@ const hopitalController = {
 		});
 
 		if (!hospital) {
-			return { error: new NotFoundError("Utilisateur non trouvé") };
+			throw  new NotFoundError("Utilisateur non trouvé");
 		}
 		return hospital;
 	},
@@ -33,7 +32,7 @@ const hopitalController = {
 		console.log(data);
 
 		if (!nom || !adresse || !tel) {
-			return { error: new BadRequestError(" veuillez remplir les champs") };
+			throw new BadRequestError(" veuillez remplir les champs");
 		}
 
 		const hospital = await Hopital.findOne({
@@ -52,8 +51,6 @@ const hopitalController = {
 			};
 		}
 		const newallergene = await Hopital.create({ nom, adresse, tel });
-		//console.log(newallergene + "here is new allergene");
-
 		return newallergene;
 	},
 };

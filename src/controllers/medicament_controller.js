@@ -10,7 +10,6 @@ const medicamentController = {
 			raw: true,
 		});
 		return medicaments;
-		//return {pulet :"fifi"};//pour voir dans le table clubs car il est vide
 	},
 };
 

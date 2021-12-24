@@ -10,7 +10,6 @@ const serviceController = {
 			raw: true,
 		});
 		return services;
-		//return {pulet :"fifi"};//pour voir dans le table clubs car il est vide
 	},
 };
 module.exports = serviceController;

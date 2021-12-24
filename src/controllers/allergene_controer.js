@@ -11,7 +11,6 @@ const allergenController = {
 			raw: true,
 		});
 		return allernens;
-		//return {fil : "fil"};
 	},
 
 	getAllergene: async (nom) => {
@@ -47,8 +46,6 @@ const allergenController = {
 			);
 		}
 		const newallergene = await Allergene.create({ nom, code });
-		//console.log(newallergene + "here is new allergene");
-
 		return newallergene;
 	},
 };
