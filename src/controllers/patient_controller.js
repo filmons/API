@@ -1,3 +1,5 @@
+const { pick } = require("lodash");
+
 const { Patient } = require("../../db/modules");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
