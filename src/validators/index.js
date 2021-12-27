@@ -1,7 +1,5 @@
-
-
-const djValidation = require("./dj");
+const patientValidation = require("../validators/patient");
 
 module.exports = {
-  djValidation,
+    patientValidation
 };

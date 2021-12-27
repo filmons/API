@@ -13,6 +13,19 @@ const nameValidation = (nom) => {
   return null;
 };
 
+const teleValidation = (tele) => {
+    if (isNil(tele) || tele === "") {
+      return "La biographie doit être renseigné";
+    }
+    if (typeof tele !== "string") {
+      return "La biographie doit être une chaîne de caractères";
+    }
+    if (tele.length < 500 || tele.length > 2000) {
+      return "La biographie doit contenir entre 500 et 2000 caractères";
+    }
+    return null;
+  };
+  
 
 
 
@@ -21,28 +34,21 @@ const nameValidation = (nom) => {
 module.exports = (data) => {
     /* eslint-disable camelcase */
     const {
-      nom,
-    biography,
-    //   musical_genres,
-    //   soundcloud,
-    //   facebook,
-    //   instagram,
-    //   spotify,
-    //   beatport,
-    //   mixcloud,
-    //   youtube,
+        nom,
+        tele,
+    
     } = data;
     /* eslint-enable camelcase */
     const errors = [];
 
 
 
-    const nameError = nameValidation(nom);
-    if (nameError) errors.push({ field: "nom", message: nameError });
+  const nameError = nameValidation(nom);
+  if (nameError) errors.push({ field: "nom", message: nameError });
 
-  const biographyError = biographyValidation(biography);
+  const biographyError = teleValidation(tele);
   if (biographyError)
-    errors.push({ field: "biography", message: biographyError });
+    errors.push({ field: "tele", message: biographyError });
 
 
     return errors.length > 0 ? errors : null;
