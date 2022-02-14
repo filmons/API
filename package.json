@@ -2,9 +2,10 @@
   "name": "mnes",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon — exec babel-node ./src/app.js",
+    "start": "nodemon — exec babel-node app.js",
     "dev": "nodemon",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
@@ -16,17 +17,21 @@
     "@babel/preset-env": "^7.15.6",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
+    "csurf": "^1.11.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-generator": "^4.16.1",
     "helmet": "^4.6.0",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
+    "morgan": "^1.10.0",
     "mysql2": "^2.3.0",
     "nodemon": "^2.0.13",
     "sequelize": "^6.6.5",
     "sequelize-cli": "^6.2.0",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "winston": "^3.6.0"
   }
 }
