@@ -1,4 +1,5 @@
-import { Model, DataTypes } from "sequelize";
+import pkg from 'sequelize';
+const { Model, DataTypes } = pkg;
 import db from "../../config/database.js";
 
 class PatientDao extends Model {

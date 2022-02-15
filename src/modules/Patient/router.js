@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { auth } from "../../middlewares";
+import { auth } from "../../middlewares/index.js";
 
 class PatientRouter {
   constructor(controller) {

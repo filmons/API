@@ -1,6 +1,7 @@
-require("dotenv").config();
+import dotenv from 'dotenv';
+dotenv.config();
 
-module.exports = {
+const config = {
   development: {
     app_port: process.env.APP_PORT,
     db_port: process.env.DB_PORT,

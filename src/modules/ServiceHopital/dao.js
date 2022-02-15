@@ -1,5 +1,6 @@
-import { Model, DataTypes } from "sequelize";
-import db from "../../config/database";
+import pkg from 'sequelize';
+const { Model, DataTypes } = pkg;
+import db from "../../config/database.js";
 
 class ServiceHopitalDao extends Model {
   static init(sequelize) {

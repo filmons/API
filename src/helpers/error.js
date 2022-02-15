@@ -1,4 +1,4 @@
-import { logger } from "../middlewares";
+import { logger } from "../middlewares/index.js";
 
 class ApiError extends Error {
   constructor(statusCode, message) {

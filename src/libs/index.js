@@ -9,7 +9,7 @@ import JwtService from "./jwt.js";
 import jwt from "jsonwebtoken";
 
 // Instanciate all your singleton service with dépendencies injection
-const mailerService = new MailerService(nodemailer);
+// const mailerService = new MailerService(nodemailer);
 const jwtService = new JwtService(jwt, config.jwt_secret);
 
 // export all the libs services

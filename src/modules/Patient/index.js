@@ -1,9 +1,9 @@
-import { jwtService } from "../../libs";
-import PatientDao from "./dao";
-import PatientRepository from "./repository";
-import PatientService from "./service";
-import PatientController from "./controller";
-import PatientRouter from "./router";
+import { jwtService } from "../../libs/index.js";
+import PatientDao from "./dao.js";
+import PatientRepository from "./repository.js";
+import PatientService from "./service.js";
+import PatientController from "./controller.js";
+import PatientRouter from "./router.js";
 
 const patientRepository = new PatientRepository(PatientDao);
 const patientService = new PatientService(patientRepository);

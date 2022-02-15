@@ -2,8 +2,10 @@ import express from "express";
 import Server from "./src/config/server.js";
 import db from "./src/config/database";
 import config from "./src/config/env";
-import routes from "./src/modules";
+import routes from "../src/modules/index.js";
 import middlewares from "./src/middlewares";
+
+// import logger from "./helpers/logger.js";
 
 const http = express();
 const application = new Server(http, routes, middlewares);

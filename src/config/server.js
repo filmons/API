@@ -1,3 +1,4 @@
+import {handleError} from '../helpers/error.js';
 class Server {
   constructor(http, routes, middlewares) {
     this.app = http;
@@ -5,7 +6,6 @@ class Server {
     this.initializeRouter(routes);
     this.initializeErrorHandler();
   }
-
   initializeMiddlewares(middlewares) {
     for (const key in middlewares) {
       if (key === "csrf") {
@@ -15,6 +15,7 @@ class Server {
       } else this.app.use(middlewares[key]);
     }
   }
+  
 
   initializeRouter(routes) {
     for (let path in routes) {

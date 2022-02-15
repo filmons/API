@@ -1,16 +1,13 @@
-import { jwtService } from "../../libs";
-import ServiceDao from "./dao";
-import ServiceRepository from "./repository";
-import ServiceHopitalService from "./service";
-import ServiceHopitalController from "./controller";
-import ServiceHopitalRouter from "./router";
+import { jwtService } from "../../libs/index.js";
+import ServiceHopitalDao from "./dao.js";
+import ServiceHopitalRepository from "./repository.js";
+import ServiceHopitalService from "./service.js";
+import ServiceHopitalController from "./controller.js";
+import ServiceHopitalRouter from "./router.js";
 
-const userRepository = new ServiceRepository(ServiceDao);
-const ServiceHopitalService = new ServiceHopitalService(userRepository);
-const serviceHopitalController = new ServiceHopitalController(
-  ServiceHopitalService,
-  jwtService
-);
-const ServiceHopitalRouter = new ServiceHopitalRouter(serviceHopitalController);
+const serviceHopitalRepository = new ServiceHopitalRepository(ServiceHopitalDao);
+const serviceHopitalService = new ServiceHopitalService(serviceHopitalRepository);
+const serviceHopitalController = new ServiceHopitalController(serviceHopitalService,jwtService);
+const serviceHopitalRouter = new ServiceHopitalRouter(serviceHopitalController);
 
-export { ServiceHopitalRouter, ServiceDao };
+export { serviceHopitalRouter, ServiceHopitalDao };

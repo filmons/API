@@ -1,4 +1,4 @@
-import ServiceHopitalDTO from "./dto";
+import ServiceHopitalDTO from "./dto.js";
 
 class ServiceHopitalService {
   constructor(serviceHopitalRepository) {

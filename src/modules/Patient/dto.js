@@ -1,4 +1,4 @@
-import ServiceDTO from "../ServiceHopital/dto";
+import ServiceDTO from "../ServiceHopital/dto.js";
 
 class PatientDTO {
   constructor({
